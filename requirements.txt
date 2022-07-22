@@ -1,0 +1,4 @@
+pytest~=7.1.2
+galois==0.0.30
+numpy>=1.18.4
+setuptools>=42.0

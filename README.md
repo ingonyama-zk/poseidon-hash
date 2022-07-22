@@ -1,5 +1,7 @@
 # Poseidon
 
+[![PyPI version](https://badge.fury.io/py/poseidon-hash.svg)](https://badge.fury.io/py/poseidon-hash)
+
 This repository contains a reference implementations for the original version of Poseidon [1] and the instantiation as a hash
 function tuned for Filecoin [2].
 Moreover, scripts to calculate the round numbers, the round constants, and the MDS matrices are also included.
