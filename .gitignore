@@ -6,3 +6,4 @@ dist/
 build/
 poseidon/poseidon_hash.egg-info/
 .idea
+poseidon_hash.egg-info

@@ -2,9 +2,8 @@ from setuptools import setup
 
 setup(
     name='poseidon-hash',
-    version='0.1.0',
-    py_modules=["hash"],
-    package_dir={'': 'poseidon'},
+    version='0.1.1',
+    packages=["poseidon"],
     url='https://github.com/ingonyama-zk/poseidon-hash',
     author='Ingonyama',
     author_email='ekaterina@ingonyama.com',

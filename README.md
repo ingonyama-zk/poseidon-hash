@@ -31,12 +31,10 @@ or you can set your own parameters that have already been generated.
 For matrices and round constants, use the hex representation.
 
 ```python
-from parameters import *
-import hash
-
+import poseidon
 
 def main():
-    poseidon_simple, t = case_simple()
+    poseidon_simple, t = poseidon.parameters.case_simple()
 
     input_vec = [x for x in range(0, t)]
     print("Input: ", input_vec)
@@ -49,10 +47,11 @@ def main():
     full_round = 8
     partial_round = 56
     alpha = 5
-    poseidon_pre_generated = hash.OptimizedPoseidon(HashType.CONSTINPUTLEN, prime_255, security_level, alpha,
-                                                    input_rate, t_opt,
+    poseidon_pre_generated = poseidon.OptimizedPoseidon(poseidon.HashType.CONSTINPUTLEN, poseidon.parameters.prime_255, 
+                                                    security_level, alpha, input_rate, t_opt,
                                                     full_round=full_round, partial_round=partial_round,
-                                                    rc_list=round_constants_neptune, mds_matrix=matrix_neptune)
+                                                    rc_list=poseidon.parameters.round_constants_neptune, 
+                                                    mds_matrix=poseidon.parameters.matrix_neptune)
 
     input_vec_2 = [x for x in range(0, t_opt - 1)]
     print("Input: ", input_vec_2)
@@ -71,16 +70,14 @@ if they are not specified, they will be generated automatically.
 For the same required input parameters the same optional parameters will always be generated.
 
 ```python
-from parameters import *
-import hash
-
+import poseidon
 
 def main():
     security_level = 128
     input_rate = 3
     t = 4
     alpha = 5
-    poseidon_new = hash.Poseidon(prime_255, security_level, alpha, input_rate, t)
+    poseidon_new = poseidon.Poseidon(poseidon.parameters.prime_255, security_level, alpha, input_rate, t)
 
     input_vec = [x for x in range(0, t)]
     print("Input: ", input_vec)
