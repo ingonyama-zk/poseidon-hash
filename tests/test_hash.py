@@ -3,11 +3,10 @@ import pytest as pytest
 import poseidon
 
 # using https://extgit.iaik.tugraz.at/krypto/hadeshash/-/tree/master/code
-# WARNING. Fix bug with matrix multiplication in code above (see them README). Use Output[1] for tests
 # sage poseidonperm_x5_254_3.sage
-output_254 = "0x1357e867b0efbd9d865420117785ee2c9360745c7c5b4bc11782be67e6cb0b59"
+output_254 = "0x0fca49b798923ab0239de1c9e7a4a9a2210312b6a2f616d18b5a87f9b628ae29"
 # sage poseidonperm_x5_255_5.sage
-output_255 = "0x4415f84efb53753a723c8a57fc8a56038b88471d4bb32fb8d82240289fd0a33d"
+output_255 = "0x65ebf8671739eeb11fb217f2d5c5bf4a0c3f210e3f3cd3b08b5db75675d797f7"
 
 
 # Compare with reference implementation https://extgit.iaik.tugraz.at/krypto/hadeshash

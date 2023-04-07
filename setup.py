@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='poseidon-hash',
-    version='0.1.1',
+    version='0.1.2',
     packages=["poseidon"],
     url='https://github.com/ingonyama-zk/poseidon-hash',
     author='Ingonyama',

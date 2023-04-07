@@ -104,7 +104,7 @@ class Poseidon:
                 self.state[i] = self.s_box(self.state[i])
 
             # apply MDS matrix
-            self.state = np.dot(self.state, self.mds_matrix)
+            self.state = np.matmul(self.state, self.mds_matrix)
 
     def partial_rounds(self):
         for r in range(0, self.partial_round):
@@ -116,7 +116,7 @@ class Poseidon:
             self.state[0] = self.s_box(self.state[0])
 
             # apply MDS matrix
-            self.state = np.dot(self.state, self.mds_matrix)
+            self.state = np.matmul(self.state, self.mds_matrix)
 
     def run_hash(self, input_vec: list):
         """
@@ -239,7 +239,7 @@ class OptimizedPoseidon(Poseidon):
             self.state[i] = self.s_box(self.state[i])
             self.state[i] = self.state[i] + self.opt_rc_field[self.rc_counter]
             self.rc_counter += 1
-        self.state = np.dot(self.state, self.pre_matrix)
+        self.state = np.matmul(self.state, self.pre_matrix)
 
         # Middle partial rounds
         self.partial_rounds()
@@ -250,6 +250,6 @@ class OptimizedPoseidon(Poseidon):
         # do once for r = R - 1
         for i in range(0, self.t):
             self.state[i] = self.s_box(self.state[i])
-        self.state = np.dot(self.state, self.mds_matrix)
+        self.state = np.matmul(self.state, self.mds_matrix)
 
         return self.state[1]
