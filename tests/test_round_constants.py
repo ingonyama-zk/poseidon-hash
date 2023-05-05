@@ -8,9 +8,10 @@ import poseidon
 
 
 @pytest.mark.parametrize("rc_expected, t ,full_round, partial_round, alpha, prime, prime_bit_len", [
-    # using https://extgit.iaik.tugraz.at/krypto/hadeshash/-/blob/master/code/generate_parameters_grain.sage
-    # sage generate_parameters_grain.sage 1 1 255 9 8 57 73EDA753299D7D483339D80809A1D80553BDA402FFFE5BFEFFFFFFFF00000001
+    # references are generated using https://extgit.iaik.tugraz.at/krypto/hadeshash/-/blob/master/code/generate_parameters_grain.sage
+    # sage generate_parameters_grain.sage 1 0 64 9 8 41 0xfffffffffffffeff
     (poseidon.round_constants_64, 9, 8, 41, 3, poseidon.prime_64, 64),
+    # sage generate_parameters_grain.sage 1 0 255 9 8 57 73EDA753299D7D483339D80809A1D80553BDA402FFFE5BFEFFFFFFFF00000001
     (poseidon.round_constants_test, 9, 8, 57, 5, poseidon.prime_255, 255),
 
 ])

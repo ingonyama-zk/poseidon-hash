@@ -42,7 +42,7 @@ class Poseidon:
         self.security_level = security_level
 
         # TODO: For now alpha is fixed parameter
-        if np.gcd(alpha, p - 1) == 1:
+        if np.gcd(np.ulonglong(alpha), p - 1) == 1:
             self.alpha = alpha
         else:
             print("Not available alpha")
@@ -104,7 +104,7 @@ class Poseidon:
                 self.state[i] = self.s_box(self.state[i])
 
             # apply MDS matrix
-            self.state = np.matmul(self.state, self.mds_matrix)
+            self.state = np.matmul(self.mds_matrix, self.state)
 
     def partial_rounds(self):
         for r in range(0, self.partial_round):
@@ -116,7 +116,7 @@ class Poseidon:
             self.state[0] = self.s_box(self.state[0])
 
             # apply MDS matrix
-            self.state = np.matmul(self.state, self.mds_matrix)
+            self.state = np.matmul(self.mds_matrix, self.state)
 
     def run_hash(self, input_vec: list):
         """
